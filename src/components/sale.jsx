@@ -104,7 +104,7 @@ export default function StyloSale() {
         <span>Women Wear</span> <span className="font-semibold">Sale</span>
       </nav>
 
-      <h1 className="text-4xl font-bold mb-6 tex-left">THE DANDY SALE FOR WOMEN</h1>
+      <h1 className="text-4xl font-bold mb-6 tex-left">THE STYLO SALE FOR WOMEN</h1>
 
       <div className="mb-4 flex gap-6 text-lg font-semibold">
         <span className="text-black">Women Shop</span>
