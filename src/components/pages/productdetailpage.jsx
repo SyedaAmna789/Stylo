@@ -1,4 +1,88 @@
 import React, { useState } from "react";
+const products = [
+    {
+      id: 1,
+      image: "/images/1.jpg",
+      brand: "Stylo",
+      name: "Bag for Girls",
+      originalPrice: "Rs/-4000",
+      discountedPrice: "Rs/-2000",
+      discount: "5%",
+      category: "Bags",
+    },
+    {
+      id: 2,
+      image: "/images/2.jpg",
+      brand: "Stylo",
+      name: "Bag for Girls",
+      originalPrice: "Rs/-15000",
+      discountedPrice: "Rs/-2000",
+      discount: "10%",
+      category: "Bags",
+    },
+    {
+      id: 3,
+      image: "/images/3.jpg",
+      brand: "Stylo",
+      name: "Shoes for Girls",
+      originalPrice: "Rs/-30000",
+      discountedPrice: "Rs/-2000",
+      discount: "10%",
+      category: "Shoes",
+    },
+    {
+      id: 4,
+      image: "/images/4.jpg",
+      brand: "Stylo",
+      name: "Shoes for Girls",
+      originalPrice: "Rs/-40000",
+      discountedPrice: "Rs/-2000",
+      discount: "10%",
+      category: "Shoes",
+    },
+    {
+      id: 5,
+      image: "/images/5.jpg",
+      brand: "Stylo",
+      name: "Dress for Girls",
+      originalPrice: "Rs/-20000",
+      discountedPrice: "Rs/-2000",
+      discount: "10%",
+      category: "Dress",
+    },
+    {
+      id: 6,
+      image: "/images/6.jpg",
+      brand: "Stylo",
+      name: "Dress for Girls",
+      originalPrice: "Rs/-7000",
+      discountedPrice: "Rs/-2000",
+      discount: "10%",
+      category: "Dress",
+    },
+    {
+      id: 7,
+      image: "/images/7.jpg",
+      brand: "Stylo",
+      name: "Jewelary for Girls",
+      originalPrice: "Rs/-9000",
+      discountedPrice: "Rs/-2000",
+      discount: "10%",
+      category: "Jewelary",
+    },
+  
+    {
+      id: 9,
+      image: "/images/9.jpg",
+      brand: "Stylo",
+      name: "Accessories for Girls",
+      originalPrice: "Rs/-14000",
+      discountedPrice: "Rs/-2000",
+      discount: "10%",
+      category: "Accessories",
+    },
+  
+  ];
 
 function ProductPage() {
     const [selectedImage, setSelectedImage] = useState("/images/1.jpg");
@@ -63,6 +147,104 @@ function ProductPage() {
                 </div>
 
             </div>
+            {/* Additional info  */}
+            <section className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-12 text-sm text-gray-800">
+                <div className="md:col-span-1 space-y-4">
+                    <h3 className="text-xs font-semibold uppercase text-gray-500">The Details</h3>  
+               
+                <div>
+                <h4 className="font-semibold">Stylo</h4>
+                <p>Its a luxurious item of our store.It has so many new feature.You will enjoy a lot.</p>
+                </div>
+                <div>
+                    <h5 className="font-semibold mt-4 mb-1">Hightlights</h5>
+                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Leather Strap</li>
+                        <li>Leather all side </li>
+                        <li>Fine zip</li>
+                        <li>5 Pockets</li>
+                    </ul>
+                </div>
+                </div>
+                {/*Product image */}
+                <div className="space-y-6">
+                    <div>
+                        <p className="font-semibold">Stylo: 1822789</p>
+                        <p>Brand style ID:2662BAHADAR</p>
+                    </div>
+                    <div className="mt-4">
+                        <img 
+                        src="/images/1.jpg"
+                        alt="Product Side Veiw"
+                        className="w-full object-contain rounded-lg"
+                        />
+
+                    </div>
+
+                </div>
+            </section>
+            <div className="mt-12">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-semibold text-gray-800">Recommendations</h2>
+              <button className="px-5 py-2 text-sm rounded-full border border-gray-400 hover:bg-black hover:text-white transition">
+                Shop Now
+              </button>
+            </div>
+
+            {/*Products*/}
+            <div className="relative flex justify-center mt-8">
+              <div
+                className="flex gap-6 w-max px-1 custom-scrollbar"
+                style={{
+                  maxWidth: "75%",
+                  overflowX: "auto",
+                  scrollbarWidth: "thin",
+                  scrollbarColor: "black transparent",
+                  marginTop: "20px",
+                }}
+              >
+                {products.slice(0, 8).map((item) => (
+                  <div
+                    key={item.id}
+                    className="min-w-[220px] max-w-[220px] bg-white p-3 flex flex-col hover:shadow-md transition"
+                  >
+                    <div className="w-full h-[200px] flex items-center justify-center">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="object-contain h-full max-h-[180px]"
+                      />
+                    </div>
+                    <div className="mt-4 text-sm">
+                      <p className="text-gray-400">New Season</p>
+                      <p className="text-black font-semibold">{item.brand}</p>
+                      <p className="text-gray-600 line-clamp-1">{item.name}</p>
+                      <p className="text-red-600 font-bold mt-1">
+                        {item.discountedPrice}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Custom Scrollbar Styling */}
+            <style jsx>{`
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: black;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background-color: #222;
+    }
+  `}</style>
+          </div>
         </div>
     );
 }
