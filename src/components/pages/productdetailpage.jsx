@@ -1,92 +1,114 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom";
 const products = [
-    {
-      id: 1,
-      image: "/images/1.jpg",
-      brand: "Stylo",
-      name: "Bag for Girls",
-      originalPrice: "Rs/-4000",
-      discountedPrice: "Rs/-2000",
-      discount: "5%",
-      category: "Bags",
-    },
-    {
-      id: 2,
-      image: "/images/2.jpg",
-      brand: "Stylo",
-      name: "Bag for Girls",
-      originalPrice: "Rs/-15000",
-      discountedPrice: "Rs/-2000",
-      discount: "10%",
-      category: "Bags",
-    },
-    {
-      id: 3,
-      image: "/images/3.jpg",
-      brand: "Stylo",
-      name: "Shoes for Girls",
-      originalPrice: "Rs/-30000",
-      discountedPrice: "Rs/-2000",
-      discount: "10%",
-      category: "Shoes",
-    },
-    {
-      id: 4,
-      image: "/images/4.jpg",
-      brand: "Stylo",
-      name: "Shoes for Girls",
-      originalPrice: "Rs/-40000",
-      discountedPrice: "Rs/-2000",
-      discount: "10%",
-      category: "Shoes",
-    },
-    {
-      id: 5,
-      image: "/images/5.jpg",
-      brand: "Stylo",
-      name: "Dress for Girls",
-      originalPrice: "Rs/-20000",
-      discountedPrice: "Rs/-2000",
-      discount: "10%",
-      category: "Dress",
-    },
-    {
-      id: 6,
-      image: "/images/6.jpg",
-      brand: "Stylo",
-      name: "Dress for Girls",
-      originalPrice: "Rs/-7000",
-      discountedPrice: "Rs/-2000",
-      discount: "10%",
-      category: "Dress",
-    },
-    {
-      id: 7,
-      image: "/images/7.jpg",
-      brand: "Stylo",
-      name: "Jewelary for Girls",
-      originalPrice: "Rs/-9000",
-      discountedPrice: "Rs/-2000",
-      discount: "10%",
-      category: "Jewelary",
-    },
+  {
+    id: 1,
+    image: "/images/1.jpg",
+    brand: "Stylo",
+    name: "Bag for Girls",
+    originalPrice: "Rs/-4000",
+    discountedPrice: "Rs/-2000",
+    discount: "5%",
+    category: "Bags",
+  },
+  {
+    id: 2,
+    image: "/images/2.jpg",
+    brand: "Stylo",
+    name: "Bag for Girls",
+    originalPrice: "Rs/-15000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Bags",
+  },
+  {
+    id: 3,
+    image: "/images/3.jpg",
+    brand: "Stylo",
+    name: "Dress for Girls",
+    originalPrice: "Rs/-30000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Dress",
+  },
+  {
+    id: 4,
+    image: "/images/4.jpg",
+    brand: "Stylo",
+    name: "Dress for Girls",
+    originalPrice: "Rs/-40000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Dress",
+  },
+  {
+    id: 5,
+    image: "/images/5.jpg",
+    brand: "Stylo",
+    name: "Dress for Girls",
+    originalPrice: "Rs/-20000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Dress",
+  },
+  {
+    id: 6,
+    image: "/images/6.jpg",
+    brand: "Stylo",
+    name: "Shoes for Girls",
+    originalPrice: "Rs/-7000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Shoes",
+  },
+  {
+    id: 7,
+    image: "/images/7.jpg",
+    brand: "Stylo",
+    name: "Shoes for Girls",
+    originalPrice: "Rs/-9000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Shoes",
+  },
+
+  {
+    id: 8,
+    image: "/images/9.jpg",
+    brand: "Stylo",
+    name: "Accessories for Girls",
+    originalPrice: "Rs/-14000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Accessories",
+  },
   
-    {
-      id: 9,
-      image: "/images/9.jpg",
-      brand: "Stylo",
-      name: "Accessories for Girls",
-      originalPrice: "Rs/-14000",
-      discountedPrice: "Rs/-2000",
-      discount: "10%",
-      category: "Accessories",
-    },
-  
-  ];
+  {
+    id: 9,
+    image: "/images/8.jpg",
+    brand: "Stylo",
+    name: "Jewelary for Girls",
+    originalPrice: "Rs/-14000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Jewelary",
+  },
+  {
+    id: 10,
+    image: "/images/10.jpg",
+    brand: "Stylo",
+    name: "Jewelary for Girls",
+    originalPrice: "Rs/-14000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Jewelary",
+  },
+
+];
 
 function ProductPage() {
     const [selectedImage, setSelectedImage] = useState("/images/1.jpg");
-    const thumbnails = ["/images/1.jpg", "/images/2.jpg", "/images/3.jpg"];
+    const thumbnails = ["/images/1.jpg", "/images/2.jpg", "/images/1.jpg"];
 
     return (
         <div className="bg-white text-gray-900 w-full min-h-screen">
@@ -166,6 +188,13 @@ function ProductPage() {
                     </ul>
                 </div>
                 </div>
+                <div className="space-y-6">
+                  <div>
+                    <p className="font-semibold">Stylo Article:</p>
+                    <p>99867643323</p>
+                  </div>
+
+                </div>
                 {/*Product image */}
                 <div className="space-y-6">
                     <div>
@@ -203,7 +232,7 @@ function ProductPage() {
                   marginTop: "20px",
                 }}
               >
-                {products.slice(0, 8).map((item) => (
+                {products.slice(0, 10).map((item) => (
                   <div
                     key={item.id}
                     className="min-w-[220px] max-w-[220px] bg-white p-3 flex flex-col hover:shadow-md transition"

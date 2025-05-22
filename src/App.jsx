@@ -5,6 +5,9 @@ import Footer from "./components/footer";
 import WomenSale from "./components/sale";
 import BestDressed from "./components/bestDressed";
 import ProductPage from "./components/pages/productDetailpage";
+import Basket from"./components/pages/basket";
+import Checkout from"./components/pages/checkout";
+import UserModal from "./components/userModal";
 function App() {
 
     return (
@@ -21,7 +24,9 @@ function App() {
                             </>
                         } />
                         <Route path="/product/:id" element={<ProductPage />}  />
-                   
+                        <Route path="/basket" element={<Basket/>}/>
+                        <Route path="/checkout" element={<Checkout/>}/>
+                        <Route path="/userModal" element={<UserModal/>}/>
                     </Routes>
                 </main>
                 {/*Footer*/}

@@ -26,21 +26,21 @@ const products = [
     id: 3,
     image: "/images/3.jpg",
     brand: "Stylo",
-    name: "Shoes for Girls",
+    name: "Dress for Girls",
     originalPrice: "Rs/-30000",
     discountedPrice: "Rs/-2000",
     discount: "10%",
-    category: "Shoes",
+    category: "Dress",
   },
   {
     id: 4,
     image: "/images/4.jpg",
     brand: "Stylo",
-    name: "Shoes for Girls",
+    name: "Dress for Girls",
     originalPrice: "Rs/-40000",
     discountedPrice: "Rs/-2000",
     discount: "10%",
-    category: "Shoes",
+    category: "Dress",
   },
   {
     id: 5,
@@ -56,25 +56,25 @@ const products = [
     id: 6,
     image: "/images/6.jpg",
     brand: "Stylo",
-    name: "Dress for Girls",
+    name: "Shoes for Girls",
     originalPrice: "Rs/-7000",
     discountedPrice: "Rs/-2000",
     discount: "10%",
-    category: "Dress",
+    category: "Shoes",
   },
   {
     id: 7,
     image: "/images/7.jpg",
     brand: "Stylo",
-    name: "Jewelary for Girls",
+    name: "Shoes for Girls",
     originalPrice: "Rs/-9000",
     discountedPrice: "Rs/-2000",
     discount: "10%",
-    category: "Jewelary",
+    category: "Shoes",
   },
 
   {
-    id: 9,
+    id: 8,
     image: "/images/9.jpg",
     brand: "Stylo",
     name: "Accessories for Girls",
@@ -83,65 +83,87 @@ const products = [
     discount: "10%",
     category: "Accessories",
   },
+  
+  {
+    id: 9,
+    image: "/images/8.jpg",
+    brand: "Stylo",
+    name: "Jewelary for Girls",
+    originalPrice: "Rs/-14000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Jewelary",
+  },
+  {
+    id: 10,
+    image: "/images/10.jpg",
+    brand: "Stylo",
+    name: "Jewelary for Girls",
+    originalPrice: "Rs/-14000",
+    discountedPrice: "Rs/-2000",
+    discount: "10%",
+    category: "Jewelary",
+  },
 
 ];
-const filters = ["Clothing", "Bags", "Shoes", "Accessories", "Jewelary"];
+const filters = ["Clothing", "Bags","Dress", "Shoes", "Accessories", "Jewelary"];
 
 
 
 export default function StyloSale() {
 
-  const [selectedFilter, setSelectedFilter] = useState("AllFilters");
+ const [selectedFilter,setSelectedFilter]=useState("AllFilters");
 
   const filteredProducts = selectedFilter === "AllFilters"
-    ? [...products]
-    : products.filter((product) => product.category === selectedFilter);
+  ? [...products]
+  : products.filter((product)=> product.category === selectedFilter);
 
-  return (
-    <div className="max-w-full p-2 mx-auto text-left">
+    return (
+        <div className="max-w-full p-2 mx-auto text-left">
 
-      <nav className="text-sm text-gray-500 mb-4">
-        <span>Women Wear</span> <span className="font-semibold">Sale</span>
-      </nav>
+            <nav className="text-sm text-gray-500 mb-4">
+                <span>Women Wear</span> <span className="font-semibold">Sale</span>
+            </nav>
 
-      <h1 className="text-4xl font-bold mb-6 tex-left">THE STYLO SALE FOR WOMEN</h1>
+            <h1 className="text-4xl font-bold mb-6 tex-left">THE STYLO SALE FOR WOMEN</h1>
 
-      <div className="mb-4 flex gap-6 text-lg font-semibold">
-        <span className="text-black">Women Shop</span>
-        <span className="text-black">Men Shop</span>
-        <span className="text-black">Kids Shop</span>
-      </div>
+            <div className="mb-4 flex gap-6 text-lg font-semibold">
+                <span className="text-black">Women Shop</span>
+                <span className="text-black">Men Shop</span>
+                <span className="text-black">Kids Shop</span>
+            </div>
 
-      {/* Filtering and sorting */}
-      <div className="flex justify-between items-center mb-6">
-        {/* Filters */}
-        <div className="flex flex-wrap gap-3">
-          <button className="flex items-center px-4 py-2 border border-gray-300 rounded-full text-gray-700
+            {/* Filtering and sorting */}
+            <div className="flex justify-between items-center mb-6">
+                {/* Filters */}
+                <div className="flex flex-wrap gap-3">
+                    <button className="flex items-center px-4 py-2 border border-gray-300 rounded-full text-gray-700
                      hover:bg-gray-200 transition"
-            onClick={() => setSelectedFilter("AllFilters")}
-          >
-            <FaFilter className="w-4 h-4 mr-2" />
-            All Filters
-          </button>
-          {filters.slice(1).map((filter, index) => (
-            <button
-              key={index}
-              className={`px-4 py-2 border rounded-full
-                              transition ${selectedFilter === filter
-                  ? "bg-black text-white border-black"
-                  : "text-gray-700 border-gray-300 hover:bg-gray-200"
-                }`}
-              onClick={() => setSelectedFilter(filter)}
-            >
-              {filter}
-            </button>
-          )
-          )
-          }
-        </div>
+                     onClick={()=>setSelectedFilter("AllFilters")}
+                     >
+                        <FaFilter className="w-4 h-4 mr-2" />
+                        All Filters
+                    </button>
+                   {filters.slice(1).map((filter, index) => (
+                        <button
+                            key={index}
+                            className={`px-4 py-2 border rounded-full
+                              transition ${
+                                selectedFilter === filter
+                              ? "bg-black text-white border-black"
+                              : "text-gray-700 border-gray-300 hover:bg-gray-200"
+                             }`}
+                             onClick={()=>setSelectedFilter(filter)}
+                        >
+                            {filter}
+                        </button>
+                    )
+                    )
+                    }
+                </div>
 
-        {/* Sorting */}
-        <button className="flex items-center text-gray-700 text-lg">
+                {/* Sorting */}
+                <button className="flex items-center text-gray-700 text-lg">
                     Sort By <FaChevronDown className="w-5 h-5 ml-1" />
                 </button>
               </div>
@@ -155,6 +177,7 @@ export default function StyloSale() {
     {/* Product Grid */}
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-start w-full">
       {filteredProducts.map((product) => (
+        <Link to={`/product/${product.id}`} key={product.id}>
         <div
           key={product.id}
           className="relative group bg-white rounded-lg p-4 text-left w-full"
@@ -181,6 +204,7 @@ export default function StyloSale() {
             {product.discount}
           </span>
         </div>
+        </Link>
       ))}
     </div>
   </>
@@ -206,7 +230,7 @@ export default function StyloSale() {
                   marginTop: "20px",
                 }}
               >
-                {products.slice(0, 8).map((item) => (
+                {products.slice(0, 10).map((item) => (
                   <div
                     key={item.id}
                     className="min-w-[220px] max-w-[220px] bg-white p-3 flex flex-col hover:shadow-md transition"

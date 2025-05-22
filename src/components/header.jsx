@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { FaUser, FaHeart, FaShoppingBag, FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import Sidebar from "./sidebar";
+import { useNavigate } from "react-router-dom";
+import UserModal from "./userModal";
 
 const Header = () => {
+    const navigate =useNavigate();
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [modal, setModal] =useState(false);
 
     useEffect(() => {
-        const handleReside = () => {
+        const handleResize = () => {
             if (window.innerWidth >= 768) {
                 setSidebarOpen(false);
             }
         };
-        window.addEventListener("resize", handleReside);
+        window.addEventListener("resize", handleResize);
         return () =>
-            window.removeEventListener("resize", handleReside);
+            window.removeEventListener("resize", handleResize);
 
     }, []);
 
@@ -42,7 +46,9 @@ const Header = () => {
                 </div>
                 {/*Right Navigation */}
                 <div className="flex items-center space-x-6 text-xl text-black flex-1 justify-end">
-                    <FaUser className="hover:text-gray-600 cursor-pointer hidden md:block" />
+                    <FaUser className="hover:text-gray-600 cursor-pointer hidden md:block"
+                    onClick={()=>setModal(true)}
+                    />
                     <FaHeart className="hover:text-gray-600 cursor-pointer hidden md:block" />
                     <FaShoppingBag className="hover:text-gray-600 cursor-pointer hidden md:block" />
                     {/*Hamburger for mobile menu */}
@@ -87,6 +93,7 @@ const Header = () => {
                 isOpen={sidebarOpen}
                 onClose={() => setSidebarOpen(false)}
             />
+            <UserModal isOpen={modal} onClose={()=>setModal(false)} />
         </header>
     );
 };
