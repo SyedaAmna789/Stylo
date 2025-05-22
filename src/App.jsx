@@ -4,7 +4,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import WomenSale from "./components/sale";
 import BestDressed from "./components/bestDressed";
-import ProductPage from "./components/pages/productDetailpage";
+import ProductPage from "./components/pages/productdetailpage";
 import Basket from"./components/pages/basket";
 import Checkout from"./components/pages/checkout";
 import UserModal from "./components/userModal";
